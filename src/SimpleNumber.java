@@ -1,3 +1,5 @@
+import java.lang.String;
+
 public class SimpleNumber {
     public static void main(String[] args) {
         int n = (int) (Math.random() * 100 + 1);
@@ -6,17 +8,18 @@ public class SimpleNumber {
 
         boolean simple = true;
 
-        for(int i = 2; i < n / 2; i++){
-            if(n % i == 0){
+        for (int i = 2; i <= (int) (Math.sqrt(n)); i++) {
+
+
+            if (n % i == 0) {
                 simple = false;
                 break;
             }
         }
 
-        if(simple){
+        if (simple) {
             System.out.println("Число простое");
-        }
-        else{
+        } else {
             System.out.println("Число не является простым");
         }
     }
