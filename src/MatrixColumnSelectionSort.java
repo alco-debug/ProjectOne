@@ -1,15 +1,32 @@
-public class MatrixColumnSelectionSort {
-    public static void main(String[] args) {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-        int[][] matrix = new int[25][25];
+public class MatrixColumnSelectionSort {
+    public static void main(String[] args) throws IOException {
+
         int minpos = 0;
         int _temp = 0;
+
+        System.out.println("This program sorts matrix filled randomly, by columns");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.print("Input matrix lines number: ");
+
+        int n = Integer.parseInt(reader.readLine());
+
+        System.out.print("Input matrix columns number: ");
+
+        int m = Integer.parseInt(reader.readLine());
+
+        int[][] matrix = new int[n][m];
 
         System.out.println("Unsorted matrix:");
         //Filling array and printing unsorted
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = (int) (Math.random() * 10);
+                matrix[i][j] = (int) (Math.random() * 20);
                 System.out.print(matrix[i][j]);
                 System.out.print("\t");
             }
