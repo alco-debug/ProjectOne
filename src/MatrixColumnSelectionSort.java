@@ -16,17 +16,17 @@ public class MatrixColumnSelectionSort {
             System.out.println();
         }
         //Iterating matrix strings and sorting them with selection sort
-        for (int i = 0; i < matrix[0].length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                minpos = j;
-                for (int k = j + 1; k < matrix.length; k++) {
-                    if (matrix[k][i] <= matrix[minpos][i]) {
+        for (int j = 0; j < matrix[0].length; j++) {
+            for (int i = 0; i < matrix.length; i++) {
+                minpos = i;
+                for (int k = i + 1; k < matrix.length; k++) {
+                    if (matrix[k][j] <= matrix[minpos][j]) {
                         minpos = k;
                     }
                 }
-                _temp = matrix[minpos][i];
-                matrix[minpos][i] = matrix[j][i];
-                matrix[j][i] = _temp;
+                _temp = matrix[minpos][j];
+                matrix[minpos][j] = matrix[i][j];
+                matrix[i][j] = _temp;
             }
         }
         //Printing sorted matrix
