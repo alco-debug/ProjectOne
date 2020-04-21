@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Student {
     private int age;
     private int course;
@@ -46,6 +48,7 @@ public class Student {
             System.out.print(this.course);
             System.out.println(").");
         } else {
+            this.course = -1;
             System.out.print(this.fio);
             System.out.println(" can't reach higher course, he or she has already graduated.");
         }
@@ -53,10 +56,10 @@ public class Student {
 
     private void getAverageMark() {
         double sum = 0;
-        for(int i = 0; i < this.marks.length; i++){
+        for (int i = 0; i < this.marks.length; i++) {
             sum += marks[i];
         }
-        average = (double) (sum / this.marks.length);
+        average = sum / this.marks.length;
     }
 
     private void study() {
@@ -64,33 +67,50 @@ public class Student {
         this.getAverageMark();
     }
 
-    private void fillMarks(){
-        for(int i = 0; i < this.marks.length; i++){
+    private void fillMarks() {
+        for (int i = 0; i < this.marks.length; i++) {
             marks[i] = (int) (Math.random() * 9) + 1;
         }
     }
 
-    public int getAge(){
+    public int getAge() {
         return age;
     }
 
-    public void setAge(int newAge){
+    public void setAge(int newAge) {
         this.age = newAge;
     }
 
-    public int getCourse(){
+    public int getCourse() {
         return course;
     }
 
-    public void setCourse(int newCourse){
+    public void setCourse(int newCourse) {
         this.course = newCourse;
     }
 
-    public String getFio(){
+    public String getFio() {
         return fio;
     }
 
-    public double getAverage(){
+    public double getAverage() {
         return average;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o)
+            return true;
+        // null check
+        if (o == null)
+            return false;
+        // type check and cast
+        if (getClass() != o.getClass())
+            return false;
+        Student student = (Student) o;
+        // field comparison
+        return (this.age == student.getAge()) && (this.course == student.getCourse()) && (this.fio == student.getFio());
+    }
+
 }
