@@ -28,5 +28,11 @@ public class StudentTestSandbox {
         else
             System.out.println("Vasya1 and vasya2 are not equal po factu.");
 
+        System.out.print("Vasya1 hashcode: ");
+        System.out.println(vasya1.hashCode());
+
+        System.out.print("Vasya2 hashcode: ");
+        System.out.println(vasya2.hashCode());
+
     }
 }

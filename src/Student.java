@@ -113,4 +113,15 @@ public class Student {
         return (this.age == student.getAge()) && (this.course == student.getCourse()) && (this.fio == student.getFio());
     }
 
+    @Override
+    public int hashCode() {
+        int res = 1;
+        res *= this.age * this.course;
+
+        for (int i = 0; i < this.fio.length(); i++) {
+            res *= (int) this.fio.charAt(i);
+        }
+        return res;
+    }
+
 }
