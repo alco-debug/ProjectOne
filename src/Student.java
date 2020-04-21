@@ -1,7 +1,7 @@
 public class Student {
-    int age;
-    int course;
-    String fio;
+    private int age;
+    private int course;
+    private String fio;
 
     Student(int age, int course, String fio) {
         this.age = age;
@@ -42,5 +42,25 @@ public class Student {
             System.out.print(this.fio);
             System.out.println(" can't reach higher course, he or she has already graduated.");
         }
+    }
+
+    public int getAge(){
+        return age;
+    }
+
+    public void setAge(int newAge){
+        this.age = newAge;
+    }
+
+    public int getCourse(){
+        return course;
+    }
+
+    public void setCourse(int newCourse){
+        this.course = newCourse;
+    }
+
+    public String getFio(){
+        return fio;
     }
 }
