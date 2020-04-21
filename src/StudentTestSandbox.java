@@ -11,5 +11,8 @@ public class StudentTestSandbox {
             galina.toNextCourse();
             matroskin.toNextCourse();
         }
+
+        galina.getAverage();
+        matroskin.getAverage();
     }
 }

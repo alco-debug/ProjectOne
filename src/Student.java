@@ -2,17 +2,21 @@ public class Student {
     private int age;
     private int course;
     private String fio;
+    private int[] marks = new int[10];
+    private double average;
 
     Student(int age, int course, String fio) {
         this.age = age;
         this.course = course;
         this.fio = fio;
+        this.study();
     }
 
     Student(String fio) {
         this.age = 17;
         this.course = 1;
         this.fio = fio;
+        this.study();
     }
 
     public void printToConsole() {
@@ -28,12 +32,15 @@ public class Student {
             System.out.print(" has graduated the uni.");
         }
         System.out.println();
+        System.out.print("His/her average mark = ");
+        System.out.println(this.average);
     }
 
     public void toNextCourse() {
         if (this.course > 0 && this.course < 4) {
             this.course++;
             this.age++;
+            this.study();
             System.out.print(this.fio);
             System.out.print(" has reached higher course (");
             System.out.print(this.course);
@@ -41,6 +48,25 @@ public class Student {
         } else {
             System.out.print(this.fio);
             System.out.println(" can't reach higher course, he or she has already graduated.");
+        }
+    }
+
+    private void getAverageMark() {
+        double sum = 0;
+        for(int i = 0; i < this.marks.length; i++){
+            sum += marks[i];
+        }
+        average = (double) (sum / this.marks.length);
+    }
+
+    private void study() {
+        this.fillMarks();
+        this.getAverageMark();
+    }
+
+    private void fillMarks(){
+        for(int i = 0; i < this.marks.length; i++){
+            marks[i] = (int) (Math.random() * 9) + 1;
         }
     }
 
@@ -62,5 +88,9 @@ public class Student {
 
     public String getFio(){
         return fio;
+    }
+
+    public double getAverage(){
+        return average;
     }
 }
