@@ -23,7 +23,7 @@ public class MyArrayList {
     public void add(int a) {
         if (last_index == array.length) {
             int[] temp_array = array.clone();
-            array = new int[last_index + 8];
+            array = new int[((last_index * 3) / 2) + 1];
             for (int i = 0; i < last_index; i++)
                 this.array[i] = temp_array[i];
         }
@@ -73,6 +73,17 @@ public class MyArrayList {
                 if(list.array[i] != this.array[i])
                     return false;
         return true;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = 1;
+        for(int i = 0; i < last_index; i++){
+            result *= array[i];
+        }
+        result = result % array.length;
+
+        return result;
     }
 
 }
